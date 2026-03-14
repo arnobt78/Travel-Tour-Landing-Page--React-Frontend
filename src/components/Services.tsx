@@ -1,3 +1,7 @@
+/**
+ * Services section: grid of service cards (saving money, endless hiking, amazing comfort).
+ * Each Service gets a direction (left/bottom/right) for staggered slide-in animation.
+ */
 import { motion } from 'framer-motion'
 import { services } from '../data'
 import Title from './Title'
@@ -16,6 +20,7 @@ const Services = () => {
       className="py-20 scroll-mt-16 bg-grey-10"
     >
       <Title title="our" subTitle="services" />
+      {/* Stagger children: each Service uses direction (left/bottom/right) for slide-in */}
       <motion.div
         initial="hidden"
         whileInView="show"

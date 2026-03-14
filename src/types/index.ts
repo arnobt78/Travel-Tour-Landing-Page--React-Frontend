@@ -1,3 +1,8 @@
+/**
+ * Shared TypeScript interfaces for props and data shapes.
+ * Used across components and data.ts for type safety and editor hints.
+ */
+
 /** Single nav/footer link item */
 export interface PageLinkItem {
   id: number

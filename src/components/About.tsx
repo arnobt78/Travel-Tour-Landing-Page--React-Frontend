@@ -1,3 +1,7 @@
+/**
+ * About section: two-column layout (image left, copy right). Image has decorative border on xl.
+ * Framer Motion: section fades in; image slides from left, text from right, on scroll into view.
+ */
 import { motion } from 'framer-motion'
 import Title from './Title'
 
@@ -20,6 +24,7 @@ const About = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 md:mb-0 relative"
         >
+          {/* Decorative border frame on xl screens via pseudo-element */}
           <div className="xl:before:content-[''] xl:before:absolute xl:before:w-full xl:before:h-full xl:before:border-4 xl:before:border-primary-5 xl:before:top-[-1.5rem] xl:before:left-[-1.5rem] xl:before:box-border" />
           <img
             src="/images/about.jpeg"

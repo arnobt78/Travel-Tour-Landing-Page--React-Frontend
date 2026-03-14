@@ -1,3 +1,7 @@
+/**
+ * Custom hook: reports when the attached element enters the viewport.
+ * Uses Intersection Observer; used in KeyConceptsSection to trigger fade-in when user scrolls to it.
+ */
 import { useEffect, useRef, useState } from 'react'
 
 /** Returns ref and true when the element is in view (Intersection Observer). Used for scroll-triggered animations. */

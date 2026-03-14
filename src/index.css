@@ -1,9 +1,12 @@
+/* Google Font: Outfit — used in tailwind.config.js as primary font family */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
+/* Tailwind layers: base resets, component classes, utility classes */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global base styles; customizations beyond Tailwind defaults */
 @layer base {
   html {
     @apply scroll-smooth;
@@ -17,6 +20,7 @@
   a {
     @apply no-underline;
   }
+  /* Full-width images except navbar logo (nav-logo keeps intrinsic size) */
   img:not(.nav-logo) {
     @apply w-full block;
   }

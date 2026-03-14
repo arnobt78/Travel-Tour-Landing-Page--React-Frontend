@@ -1,3 +1,6 @@
+/**
+ * Featured tours section: grid of Tour cards from data. Each card gets a slide-in direction for animation.
+ */
 import { motion } from 'framer-motion'
 import { tours } from '../data'
 import Title from './Title'

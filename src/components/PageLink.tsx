@@ -1,3 +1,7 @@
+/**
+ * Single nav/footer link: one anchor (href + text from data). Renders inside <li>.
+ * itemClass differentiates nav (nav-link) vs footer (footer-link) for styling.
+ */
 import type { PageLinkItem } from '../types'
 
 interface PageLinkProps {

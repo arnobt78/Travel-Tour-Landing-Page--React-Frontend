@@ -1,3 +1,7 @@
+/**
+ * Custom hook: cycles through an array of words with a typewriter effect.
+ * Used in Hero for "Let's Explore / Get Lost / Wander ..." — types in → holds → types out → next word.
+ */
 import { useEffect, useState } from 'react'
 
 const TYPING_MS = 70
@@ -14,6 +18,7 @@ export function useCyclingStreamingWords(words: string[]): { text: string; phase
 
   const currentWord = words[wordIndex % words.length] ?? ''
 
+  // Single effect drives typing in, hold, typing out, and advancing to next word
   useEffect(() => {
     if (phase === 'in') {
       if (length >= currentWord.length) {
@@ -42,6 +47,7 @@ export function useCyclingStreamingWords(words: string[]): { text: string; phase
     return undefined
   }, [currentWord.length, length, phase, words.length])
 
+  // When word index changes, reset so the new word types in from zero
   useEffect(() => {
     setLength(0)
     setPhase('in')

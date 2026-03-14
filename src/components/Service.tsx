@@ -1,3 +1,7 @@
+/**
+ * Single service card: icon (Font Awesome), title, short text. Used in Services grid.
+ * Direction prop controls entrance animation (slide from left, right, or bottom) for variety.
+ */
 import { motion } from 'framer-motion'
 import type { ServiceItem } from '../types'
 

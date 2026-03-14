@@ -1,3 +1,7 @@
+/**
+ * Fixed top navbar: logo "Back Roads", nav links (home/about/services/tours), social icons, mobile hamburger.
+ * Uses useState to toggle mobile menu (showLinks); PageLinks and SocialLink are reusable list items.
+ */
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { socialLinks } from '../data'
@@ -19,11 +23,13 @@ const Navbar = () => {
       className="fixed top-0 left-0 w-full bg-white shadow-dark z-20 h-16 flex items-center"
     >
       <div className="w-[90vw] max-w-[1170px] mx-auto flex flex-wrap justify-between items-center gap-4">
+        {/* Text logo with gap; links to #home for accessibility */}
         <a href="#home" className="flex items-center gap-1 shrink-0 order-1" aria-label="Backroads home">
           <span className="text-xl font-bold text-grey-1 tracking-tight">Back</span>
           <span className="text-xl font-bold text-primary-5 tracking-tight">Roads</span>
         </a>
 
+        {/* Collapsible nav links: height 0 or 280px on mobile; flex row on md+ */}
         <div
           className={`overflow-hidden transition-all duration-300 ease-linear w-full order-3 md:order-2 md:!h-auto md:flex md:flex-row md:flex-1 md:justify-center md:w-auto ${
             showLinks ? 'h-[280px]' : 'h-0'
@@ -36,6 +42,7 @@ const Navbar = () => {
           />
         </div>
 
+        {/* Social icons + hamburger (mobile). Parent <li> avoids validateDOMNesting (SocialLink is <a> only). */}
         <div className="flex items-center gap-3 order-2 md:order-3 shrink-0 list-none">
           <ul className="flex gap-3 md:gap-2 list-none m-0 p-0">
             {socialLinks.map((link, i) => (

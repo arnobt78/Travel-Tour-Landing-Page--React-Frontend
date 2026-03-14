@@ -1,3 +1,7 @@
+/**
+ * Single social icon link. Renders only <a> (no <li>) so parent Navbar/Footer can wrap in <li> and avoid nesting <li> inside <li>.
+ * Opens in new tab with rel="noreferrer" for security. Icon class is Font Awesome (e.g. fab fa-facebook).
+ */
 import type { SocialLinkItem } from '../types'
 
 interface SocialLinkProps extends SocialLinkItem {

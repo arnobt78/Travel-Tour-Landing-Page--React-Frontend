@@ -1,3 +1,8 @@
+/**
+ * Central data module. No backend/API — all content is static and typed.
+ * Used by: AppContext (learningTips), Navbar/Footer (pageLinks, socialLinks),
+ * Services (services), Tours (tours).
+ */
 import type {
   LearningTip,
   PageLinkItem,

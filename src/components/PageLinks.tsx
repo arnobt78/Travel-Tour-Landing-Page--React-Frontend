@@ -1,3 +1,7 @@
+/**
+ * Renders the list of page links (home, about, services, tours) from data.
+ * Used in Navbar and Footer with different parentClass/itemClass for styling.
+ */
 import { pageLinks } from '../data'
 import PageLink from './PageLink'
 

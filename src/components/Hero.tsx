@@ -1,3 +1,7 @@
+/**
+ * Hero section: full-height block with background image (desktop), headline, and "Let's [streaming word]" typewriter.
+ * useCyclingStreamingWords cycles through HERO_KEYWORDS; min-h and min-w prevent layout shift as text streams.
+ */
 import { motion } from 'framer-motion'
 import { useCyclingStreamingWords } from '../hooks/useCyclingStreamingWords'
 
@@ -18,6 +22,7 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen relative flex justify-center items-center">
       <div className="absolute inset-0 bg-primary-5" />
+      {/* Background image only on md+; gradient overlay for readability */}
       <div
         className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
         style={{
@@ -41,6 +46,7 @@ const Hero = () => {
           className="text-white/95 tracking-widest mb-8 min-h-[3.5rem] md:min-h-[3.75rem] leading-relaxed"
         >
           Discover handcrafted tours and hidden gems. Adventure, culture, and memories that last a lifetime. Let’s{' '}
+          {/* Reserved width (10ch) + text-left so short words (e.g. Roam) sit next to "Let's" */}
           <span className="inline-block min-w-[10ch] text-left align-baseline text-primary-9 font-semibold">
             <span className="inline align-baseline">{streamingWord}</span>
             {showCursor && (

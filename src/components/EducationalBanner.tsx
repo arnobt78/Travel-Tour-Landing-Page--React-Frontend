@@ -1,3 +1,7 @@
+/**
+ * Educational banner: shows one learning tip at a time with typewriter (type in → hold → reverse → next).
+ * Data and current index from AppContext (useApp); useTypewriterStream drives the streaming effect.
+ */
 import { motion } from 'framer-motion'
 import { useCallback } from 'react'
 import { useApp } from '../context/AppContext'
@@ -22,6 +26,7 @@ const EducationalBanner = () => {
   const showCursor = phase === 'typing' || phase === 'reversing'
   const cursorOnTitle = showCursor && !visible.includes(SEP)
   const cursorOnDesc = showCursor && visible.includes(SEP)
+  // Cursor on title line until we've typed the newline, then on description line
 
   return (
     <motion.section

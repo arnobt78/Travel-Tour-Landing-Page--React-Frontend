@@ -1,3 +1,7 @@
+/**
+ * Reusable section heading: "title" + highlighted "subTitle" (e.g. "featured" + "tours").
+ * Used in About, Services, Tours, KeyConceptsSection. Fades in on scroll via whileInView.
+ */
 import { motion } from 'framer-motion'
 
 interface TitleProps {

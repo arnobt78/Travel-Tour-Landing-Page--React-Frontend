@@ -1,3 +1,7 @@
+/**
+ * Single tour card: image, date badge (Calendar), optional slogan badge (streaming text + Sparkles),
+ * title, info, and pills for location (MapPin), cost (Banknote), duration (Clock). Lucide icons for badges.
+ */
 import { motion } from 'framer-motion'
 import { Calendar, Clock, MapPin, Banknote, Sparkles } from 'lucide-react'
 import { useStreamingText } from '../hooks/useStreamingText'
@@ -26,6 +30,7 @@ const Tour = ({
 }: TourProps) => {
   const variant = slideIn[direction]
   const streamingSlogan = useStreamingText(slogan ?? '', Boolean(slogan))
+  // Slogan badge types in, holds, then reverses for a chat-like effect
 
   return (
     <motion.article

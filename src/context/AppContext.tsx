@@ -1,4 +1,8 @@
 /* eslint-disable react-refresh/only-export-components -- context and hook live together */
+/**
+ * App-level Context: holds the current learning-tip index for the EducationalBanner.
+ * Avoids prop drilling — any child can call useApp() to read/update tip state.
+ */
 import {
   createContext,
   useCallback,
@@ -10,6 +14,7 @@ import {
 import { learningTips } from '../data'
 import type { LearningTip } from '../types'
 
+/** Shape of the value provided by AppContext */
 interface AppContextValue {
   currentTipIndex: number
   setCurrentTipIndex: (index: number) => void
@@ -19,9 +24,11 @@ interface AppContextValue {
 
 const AppContext = createContext<AppContextValue | null>(null)
 
+/** Wraps the app so EducationalBanner (and others) can consume tip state via useApp() */
 export function AppProvider({ children }: { children: ReactNode }) {
   const [currentTipIndex, setCurrentTipIndex] = useState(0)
 
+  // Cycles 0 → 1 → 2 → 3 → 0; used when typewriter finishes reversing the current tip
   const nextTip = useCallback(() => {
     setCurrentTipIndex((i) => (i + 1) % learningTips.length)
   }, [])
@@ -39,6 +46,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
+/** Consume App context; must be used inside AppProvider (e.g. in EducationalBanner). */
 export function useApp() {
   const ctx = useContext(AppContext)
   if (!ctx) throw new Error('useApp must be used within AppProvider')

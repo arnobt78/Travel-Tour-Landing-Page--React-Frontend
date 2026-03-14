@@ -1,3 +1,7 @@
+/**
+ * Footer: same page links (PageLinks) and social icons (SocialLink) as navbar, plus copyright.
+ * SocialLink is wrapped in <li> here to keep valid list structure (SocialLink renders only <a>).
+ */
 import { motion } from "framer-motion";
 import { socialLinks } from "../data";
 import PageLinks from "./PageLinks";

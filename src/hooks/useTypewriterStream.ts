@@ -1,3 +1,7 @@
+/**
+ * Custom hook: typewriter for one string — types in, holds, then reverses (deletes) and calls onCycleNext.
+ * Used in EducationalBanner to show each learning tip with a streaming effect, then advance to next tip.
+ */
 import { useEffect, useRef, useState } from 'react'
 
 const TYPING_MS = 42
@@ -14,9 +18,11 @@ export function useTypewriterStream(
 ): { displayedLength: number; phase: Phase } {
   const [displayedLength, setDisplayedLength] = useState(0)
   const [phase, setPhase] = useState<Phase>('typing')
+  // Ref keeps onCycleNext stable so effect deps don't trigger unnecessary runs
   const onCycleNextRef = useRef(onCycleNext)
   onCycleNextRef.current = onCycleNext
 
+  // When tip index changes (e.g. after cycle), reset to typing from start
   useEffect(() => {
     setDisplayedLength(0)
     setPhase('typing')

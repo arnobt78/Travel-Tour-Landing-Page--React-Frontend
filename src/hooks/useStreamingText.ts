@@ -1,3 +1,7 @@
+/**
+ * Custom hook: one-off typewriter for a single string. Types in → hold → type out → repeat.
+ * Used on Tour cards for the slogan badge (e.g. "Roof of the World") so it streams in/out on a loop.
+ */
 import { useEffect, useState } from 'react'
 
 const TYPING_MS = 80

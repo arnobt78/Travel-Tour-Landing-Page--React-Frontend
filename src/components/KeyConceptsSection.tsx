@@ -1,3 +1,7 @@
+/**
+ * "How this app is built" section: four concept cards (components, Context, hooks, Framer Motion).
+ * useInView triggers fade/slide when the section scrolls into view; each card has a direction for variety.
+ */
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import Title from './Title'
@@ -13,6 +17,7 @@ const directions: Array<'left' | 'right' | 'bottom'> = ['left', 'right', 'left',
 
 const KeyConceptsSection = () => {
   const [ref, inView] = useInView()
+  // inView becomes true when ref element enters viewport; used to trigger card animations
 
   return (
     <section id="concepts" className="py-20 scroll-mt-16 bg-grey-10">
