@@ -1,17 +1,23 @@
-/** Props for section title: main title word + highlighted subTitle (e.g. "about" + "us") */
+import { motion } from 'framer-motion'
+
 interface TitleProps {
   title: string
   subTitle: string
 }
 
-/** Reusable section heading with two parts; subTitle is styled as accent (span) */
 const Title = ({ title, subTitle }: TitleProps) => {
   return (
-    <div className="section-title">
-      <h2>
-        {title} <span>{subTitle}</span>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-widest">
+        {title} <span className="text-primary-5">{subTitle}</span>
       </h2>
-    </div>
+    </motion.div>
   )
 }
 

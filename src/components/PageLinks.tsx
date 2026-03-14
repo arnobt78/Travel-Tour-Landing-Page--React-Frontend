@@ -6,10 +6,9 @@ interface PageLinksProps {
   itemClass: string
 }
 
-/** Renders a list of page links (used in Navbar and Footer with different classes) */
 const PageLinks = ({ parentClass, itemClass }: PageLinksProps) => {
   return (
-    <ul className={parentClass} id="nav-links">
+    <ul className={`${parentClass} pt-4 md:pt-0`} id="nav-links">
       {pageLinks.map((link) => (
         <PageLink key={link.id} link={link} itemClass={itemClass} />
       ))}
